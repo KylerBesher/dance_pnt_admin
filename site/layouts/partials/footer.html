@@ -1,53 +1,63 @@
-<footer class="bg-black ph3 pv4 white">
 
-	<div class="mw7 center pt3">
+<footer class="bg-black white">
+	{{if eq .Title "Register"}}
 
-		<div class="measure-narrow center mb4">
+	<img src="/img/divider-footer-white.png" class="w-100" style="margin: 0px; padding: 0px" alt="footer divider image">
+	{{else}}
+	<img src="/img/divider-footer.png" class="w-100" style="margin: 0px; padding: 0px" alt="footer divider image">
 
-			<img src="/img/logo.svg" alt="Kaldi logo" class="db w4 center mb4 br0">
-			<p class="f3 lh-title light-gray b tc mb2">Newsletter subscribe</p>
-			<p>Get awesome news from us in your inbox every two weeks. Be the first to learn about new products.</p>
-
-			{{ partial "newsletter-form" . }}
-
+	{{end}}
+	<div class="ph3 pv4 ">
+	<div class="mw7 center">
+		
+		<div class="measure-narrow center mb4 relative" style="margin-top: -50px;"  >
+			<img src="/img/logo_circle.png" alt="Prestige Dance National Tour Logo" class="db relative center mv4 br0 hidden " style="visibility: hidden;">
+			<img src="/img/logo_circle.png" alt="Prestige Dance National Tour Logo" class="db relative center mv4 br0 absolute footerImage logoCircle">
+			<img src="/img/logo_text.png" alt="Prestige Dance National Tour Logo" class="db absolute center mv4 br0 absolute footerImage logoText">
 		</div>
 
 		<div class="flex-ns justify-between">
 
 			<div>
-				<h3 class="f4 b lh-title mb1 primary">Kaldi</h3>
+				<h3 class="f4 b lh-title mb1 primary">Site Links</h3>
 				<ul class="mb3">
 					<li><a href="/" class="link">Home</a></li>
-					<li><a href="/products" class="link">Our products</a></li>
-					<li><a href="/values" class="link">About</a></li>
-					<li><a href="/post" class="link">Blog</a></li>
-					<li><a href="/contact" class="link">Contact</a></li>
+					<li><a href="/our-story" class="link">Our Story</a></li>
+					<li><a href="/nationals" class="link">Nationals</a></li>
+					<li><a href="/convention" class="link">Convention</a></li>
+					<li><a href="/the-tour" class="link">The Tour</a></li>
+					<li><a href="/rules-and-regulations" class="link">Rules and Regulations</a></li>
+					<li><a href="/covid-19-procedures" class="link">Covid-19</a></li>
+					<li><a href="/register" class="link">Register</a></li>
+					<li><a href="/terms-of-use" class="link">Terms Of Use</a></li>
 				</ul>
 			</div>
 
 			<div>
-				<h3 class="f4 b lh-title mb1 primary">Find out more</h3>
+				<h3 class="f4 b lh-title mb1 primary">Contact Us</h3>
 				<ul class="mb3">
-					<li><a href="/post/jamaica-blue/" class="link">Latest offers</a></li>
-					<li><a href="/contact" class="link">Schedule and appointment</a></li>
+					<li><a href="https://www.facebook.com/dancepnt">Message us on Facebook</a></li>
+					<li><a href="mailto:Kristal@dancepnt.com">Email Us!</a></li>
 				</ul>
 			</div>
 
 			<div>
 				<h3 class="f4 b lh-title mb2 primary">Social media</h3>
 				<ul class="mhn2">
-					{{ partial "social-icon" (dict "link" "#" "svg" "icons-facebook") }}
-					{{ partial "social-icon" (dict "link" "#" "svg" "icons-twitter") }}
-					{{ partial "social-icon" (dict "link" "#" "svg" "icons-instagram") }}
-					{{ partial "social-icon" (dict "link" "#" "svg" "icons-vimeo") }}
+					{{ partial "social-icon" (dict "link" "https://www.facebook.com/dancepnt" "svg" "icons-facebook") }}
+					{{ partial "social-icon" (dict "link" "https://www.instagram.com/PrestigeNationalTalent/" "svg" "icons-instagram") }}
 				</ul>
 			</div>
 
 		</div>
 	</div>
-
+</div>
 </footer>
-
+<span style="font-family: humbolt"> </span>
 {{ partial "svg" . }}
 
-<script src="/app.js"></script>
+
+{{ $app := .Site.Data.webpack.app }}
+{{ with $app.js }}
+<script src="{{ relURL . }}"></script>
+{{ end }}
